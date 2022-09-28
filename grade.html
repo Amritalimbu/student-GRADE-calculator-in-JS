@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Calculator</title>
+    <style>
+        body{
+            background-color: cornflowerblue;
+        }
+        div{
+            text-align: center;
+            border: 1px solid black;
+            margin: 50px;
+            border-radius: 30px;
+            background-color: rgb(178, 138, 215);
+            
+        }
+        label{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: x-large;
+            text-align: left;
+            justify-content: center;
+            position: relative;
+            left: -80px;
+        }
+        input{
+            height: 30px;
+            font-size: larger;
+            border-radius: 6px;
+            background-color: rgb(205, 200, 200);
+        }
+        input:hover{
+            background-color: rgb(175, 249, 224);
+        }
+        button{
+            font-size: larger;
+            border-radius: 6px;
+            background-color: gray;
+            margin-top: 20px;
+            height: 45px;
+        }
+        button:hover{
+            background-color: rgb(179, 246, 224);
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="div1" id="div2" onclick="abc()">
+        <h1>Grade Calculator</h1>
+        <label for="eng">English</label><br>
+        <input type="number" name="eng" id="eng" placeholder="Enter marks"><br><br>
+        <label for="hin">Hindi</label><br>
+        <input type="text" name="hin" id="hin" placeholder="Enter marks" ><br><br>
+        <label for="math">Math</label><br>
+        <input type="text" name="math" id="math" placeholder="Enter marks"><br><br>
+        <label for="sc">Science</label><br>
+        <input type="text" name="sc" id="sc" placeholder="Enter marks"><br><br>
+        
+        <button onclick="result()">Show Result</button>
+
+        <p id="show"></p>
+    </div>
+
+    <script>
+        function result(){
+            let a=document.getElementById("eng").value;
+            let b=document.getElementById("hin").value;
+            let c=document.getElementById("math").value;
+            let d=document.getElementById("sc").value;
+            // var clr=document.getElementById("show");
+
+            let total=parseFloat(a)+parseFloat(b)+parseFloat(c)+parseFloat(d)   
+
+            let ptg = (total/400) * 100;
+
+            let grade = "";
+            if (ptg<=100 && ptg>=80){
+                grade="A";
+            }
+            else if(ptg>=79 && ptg>=60){
+                grade="B"
+            }
+            else if(ptg<=59 && ptg>=40){
+                grade="C"
+            }
+            else if(ptg<40){
+                grade="f 'fail'"
+            }
+
+            document.getElementById("show").innerHTML=`your total is ${total}. And your percentage is ${ptg}%. <br> Your grade is ${grade}.`
+            var clr=document.getElementById("show")
+          
+            if(ptg<40){
+                // clr.style.color="red";
+                clr.setAttribute("style",'color:black; background-color: rgb(194, 37, 37); text-align:center; height:50px; padding-top:10px; border-radius: 0px 0px 6px 6px')
+
+            }else if(ptg>40){
+                clr.setAttribute("style",'color:black ; background-color:green; text-align:center; height:50px;padding-top:10px; border-radius: 0px 0px 6px 6px; fontSize:50px')
+            }
+        
+        }        
+    </script>
+</body>
+</html>
